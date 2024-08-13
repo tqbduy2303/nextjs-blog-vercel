@@ -22,11 +22,11 @@ export function ImageSlider({imageUrls}: ImageSliderProps){
             if (index === 0) return imageUrls.length - 1;
             return index - 1;
         });
-    }
-        
+    } 
+      
     return(
-        <div style={{width:"100%", height: "100%", position:"relative"}}>
-            <div style={{width:"100%", height: "100%",display: "flex", overflow: "hidden"}}>
+        <div className="w-full h-full relative" >
+            <div className="w-full h-full flex overflow-hidden">
             {imageUrls.map(url => (
                 <img key={url} src={url}
                 className="img-slider-img"
