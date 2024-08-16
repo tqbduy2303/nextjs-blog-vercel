@@ -9,23 +9,14 @@ const IMAGES = [img1.src, img2.src ,img3.src];
 export default function Blog() {
 
     return(
-        <div className="">
-            <div className="header">
-
-            </div>
-            <div className="main-hightlight" style={{
-                maxWidth: "1200px",
-                width: "90%",
-                aspectRatio: "11/6",
-                margin: "0 auto",
-
-            }}>
+        <div className="w-9/10">
+            <div className="max-w-screen-xl aspect-video m-auto w-9/10 ">
                 <ImageSlider imageUrls={IMAGES}/>
             </div>
-            <div className="Lastest news flex justify-center w-full">
+            <div className="flex justify-center">
                 <LastesNews imageUrls={IMAGES}/>
             </div>
-            <div className="post flex justify-center ">
+            <div className="flex justify-center ">
                 <Blogs/>
             </div>
         </div>

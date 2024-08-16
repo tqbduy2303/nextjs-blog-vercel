@@ -8,6 +8,19 @@
       {
         "image-alt": "off"
       }
+    ],
+    "axe/aria": [
+      "default",
+      {
+        "aria-roles": "off"
+      }
+    ],
+    "axe/forms": [
+      "default",
+      {
+        "select-name": "off",
+        "label": "off"
+      }
     ]
   }
 }
