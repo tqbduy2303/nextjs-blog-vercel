@@ -1,13 +1,45 @@
 'use client'
 import Link from "next/link";
 import pic from "./img/logo-finfan.png";
-import variables from './variables.module.scss'
+
+import { useContext, useEffect, useState } from "react";
+import { menuItems } from "@/utils";
+import { MenuItem } from "@/utils/types";
+import Button from "@/components/button";
+import ThemeToggler from "@/components/theme";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { usePathname, useRouter } from "next/navigation";
+import { GlobalContext } from "@/context";
 export default function Header(){
+    const [sticky, setSticky] = useState<boolean>(false);
+    const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
+    const { data: session } = useSession();
+    const {setSearchQuery, setSearchResults} = useContext(GlobalContext)
+    const router = useRouter();
+    const pathName = usePathname();
+  
+    function handleStickyNavbar() {
+      if (window.scrollY >= 80) setSticky(true);
+      else setSticky(false);
+    }
+  
+    function handleNavbarToggle() {
+      setNavbarOpen(!navbarOpen);
+    }
+  
+    useEffect(() => {
+      window.addEventListener("scroll", handleStickyNavbar);
+    });
+  
+    useEffect(()=> {
+      setSearchResults([]) 
+      setSearchQuery('')  
+    },[pathName])
     return(
 
 <nav className="">
     <div className="br-primaryColor flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
-        <Link href="/blog" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link href="/blogs" className="flex items-center space-x-3 rtl:space-x-reverse">
             <img src={pic.src} className="h-8" alt="FinFan logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Finfan</span>
         </Link>
@@ -27,11 +59,14 @@ export default function Header(){
                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
                 </svg>
             </button>
+            <div className="flex items-center">
+                  <ThemeToggler />
+                </div>
         </div>
         <div id="mega-menu-icons" className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
             <ul className="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
                 <li>
-                    <Link href="/blog" className="block py-2 px-3 text-keyColor border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 
+                    <Link href="/blogs" className="block py-2 px-3 text-keyColor border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 
                                                 dark:text-keyColor md:dark:hover:text-keyColor dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page"
                         >Home</Link>
                 </li>
@@ -39,7 +74,7 @@ export default function Header(){
                     <button id="mega-menu-icons-dropdown-button" data-dropdown-toggle="mega-menu-icons-dropdown" 
                         className="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 
                                     dark:text-secondaryColor md:dark:hover:text-keyColor dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-                        Company 
+                        Category 
                         <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
                         </svg>
@@ -163,7 +198,7 @@ export default function Header(){
                     </div>
                 </li>
                 <li>
-                    <Link href="/blog/create-blog" className="block py-2 px-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-secondaryColor md:dark:hover:text-keyColor dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Create</Link>
+                    <Link href="/create-blogs" className="block py-2 px-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-secondaryColor md:dark:hover:text-keyColor dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Create</Link>
                 </li>
             </ul>
         </div>
