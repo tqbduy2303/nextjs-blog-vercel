@@ -1,3 +1,6 @@
+import {locales} from './config';
+export type Locale = (typeof locales)[number];
+
 export interface MenuItem {
     id : string;
     label :string;

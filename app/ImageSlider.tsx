@@ -2,9 +2,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
-import image1 from "./img/3f524a5f-9daf-4350-886f-da6cd5ae683d.png";
-import image2 from "./img/image.png";
-import image3 from "./img/qslf0x12.png";
+import image1 from "@/img/3f524a5f-9daf-4350-886f-da6cd5ae683d.png";
+import image2 from "@/img/image.png";
+import image3 from "@/img/qslf0x12.png";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Interface for image data
@@ -72,7 +72,7 @@ export default function ImageSlider(){
   return (
     <div className="relative w-full mx-auto mt-4">
       <div
-        className="relative h-[460px] mx-12 group hover:scale-75"
+        className="relative h-[460px] mx-12 group hover:"
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
       >

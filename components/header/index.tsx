@@ -9,7 +9,9 @@ import ThemeToggler from "../theme";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import { GlobalContext } from "@/context";
-import pic from "@/app/img/logo-finfan.png";
+import pic from "@/img/logo-finfan.png";
+import LocaleSwitcher from "../LocalSwitcher";
+import { useTranslations } from "next-intl";
 
 
 export default function Header() {
@@ -19,6 +21,9 @@ export default function Header() {
   const {setSearchQuery, setSearchResults} = useContext(GlobalContext)
   const router = useRouter();
   const pathName = usePathname();
+
+  const t = useTranslations('Header');
+
 
   function handleStickyNavbar() {
     if (window.scrollY >= 80) setSticky(true);
@@ -105,7 +110,7 @@ export default function Header() {
                           href={item.path}
                           className={`flex py-2 text-base text-dark group-hover:opacity-70 dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0`}
                         >
-                          {item.label}
+                          {t(item.id)}
                         </Link>
                       </li>
                     ))}
@@ -116,7 +121,7 @@ export default function Header() {
                 {session !== null ? (
                   <Button
                     onClick={() => router.push("/create-blog")}
-                    text="Create"
+                    text={t("create")}
                   />
                 ) : null}
                 <Button
@@ -125,6 +130,7 @@ export default function Header() {
                   }
                   text={session !== null ? "Logout" : "Login"}
                 />
+                <div><LocaleSwitcher/></div>
                 <div className="flex gap-3 items-center">
                   <ThemeToggler />
                 </div>

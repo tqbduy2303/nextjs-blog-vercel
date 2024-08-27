@@ -57,13 +57,15 @@ export default function SingleBlog({
               </p>
             </div> */}
             <div>
-              {/* {session !== null && session?.user?.name === userid ? ( */}
+              {session !== null 
+              // && session?.user?.name === userid 
+              ? (
                 <FaTrash
                   onClick={() => handleDelete(id)}
                   size={30}
                   className="cursor-pointer"
                 />
-              {/* ) : null} */}
+              ) : null}
             </div>
           </div>
         </div>

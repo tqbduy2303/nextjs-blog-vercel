@@ -6,7 +6,7 @@ interface Param {
 
 async function extractBlogDetails(id: string) {
   const res = await fetch(
-    `${process.env.URL}/api/blog/blog-details?blogID=${id}`,
+    `${process.env.URL}/api/blogs/blog-details?blogID=${id}`,
     {
       method: "GET",
       next : {

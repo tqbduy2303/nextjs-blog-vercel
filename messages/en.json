@@ -1,0 +1,17 @@
+{
+    "HomePage": {
+      "title": "Hello world!"
+    },
+    "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, vi {Vienamese} en {English} other {Unknown}}"
+    }
+    ,
+    "Header": {
+    "home": "Home",
+    "category": "Category",
+    "blogs": "Blogs",
+    "search": "Search",
+    "create": "Create"
+    }
+  }

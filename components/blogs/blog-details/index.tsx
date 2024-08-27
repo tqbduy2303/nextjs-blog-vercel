@@ -69,7 +69,7 @@ export default function BlogDetailsHome({ blogData }: { blogData: Blog }) {
                 </h2>
                 <div className="mb-10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10 pb-4 dark:border-white dark:border-opacity-10">
                   <div className="flex flex-wrap items-center">
-                    <div className="mr-10 mb-5 flex items-center">
+                    {/* <div className="mr-10 mb-5 flex items-center">
                       <div className="mr-4">
                         <div className="relative h-10 w-10 overflow-hidden rounded-full">
                           <Image src={blogData?.userimage} alt="User" fill />
@@ -83,7 +83,7 @@ export default function BlogDetailsHome({ blogData }: { blogData: Blog }) {
                           </span>
                         </h4>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="mb-5">
                     <Link

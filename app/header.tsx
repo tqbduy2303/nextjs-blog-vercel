@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import pic from "./img/logo-finfan.png";
+import pic from "@/img/logo-finfan.png";
 
 import { useContext, useEffect, useState } from "react";
 import { menuItems } from "@/utils";
