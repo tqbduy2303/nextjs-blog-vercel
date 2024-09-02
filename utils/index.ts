@@ -44,6 +44,38 @@ export const categories: Option[] = [
     value: "science",
     label: "Science",
   },
+  {
+    value: "fintech",
+    label: "Fintech",
+  },
+  {
+    value: "promotiom",
+    label: "Promotiom",
+  },
+  {
+    value: "remittace",
+    label: "Remittace",
+  },
+  {
+    value: "digital-assets",
+    label: "Digital Assets",
+  },
+  {
+    value: "card",
+    label: "Card",
+  },
+  {
+    value: "baas",
+    label: "Bass",
+  },
+  {
+    value: "payments",
+    label: "Payments",
+  },
+  {
+    value: "startups",
+    label: "Startups",
+  },
 ];
 
 export const formControls: FormControlItem[] = [
@@ -56,11 +88,19 @@ export const formControls: FormControlItem[] = [
     options: [],
   },
   {
+    id: "description",
+    label: "Description",
+    placeholder: "Enter Blog Descripion",
+    type: "text",
+    component: "textarea",
+    options: [],
+  },
+  {
     id: "content",
     label: "Content",
     placeholder: "Enter Blog Content",
     type: "text",
-    component: "textarea",
+    component: "markdowneditor",
     options: [],
   },
   {
@@ -85,6 +125,7 @@ export const firebaseConfig = {
 
 export const initialBlogFormData = {
  title :  '',
+ description : '',
  content : '',
  image : '',
  category : '' 

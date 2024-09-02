@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { categories } from "@/utils";
 import Link from "next/link";
+import MarkdownPreview from '@uiw/react-markdown-preview';
 
 export default function CategoryList({ list }: { list: Blog[] }) {
   console.log(list, "list");
@@ -25,7 +26,7 @@ export default function CategoryList({ list }: { list: Blog[] }) {
   return (
     <>
       <section className="overflow-hidden pt-[180px] pb-[120px]">
-        <div className="container">
+        <div className="container mx-auto">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 lg:w-8/12">
               {getLatestBlogForCurrentCategory === null ? (
@@ -40,6 +41,7 @@ export default function CategoryList({ list }: { list: Blog[] }) {
                 </div>
               ) : (
                 <div>
+                  <Link  href={`/blogs/${getLatestBlogForCurrentCategory?.id}`}>
                   <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl">
                     {getLatestBlogForCurrentCategory?.title}
                   </h2>
@@ -53,9 +55,11 @@ export default function CategoryList({ list }: { list: Blog[] }) {
                       />
                     </div>
                   </div>
-                  <p className="mb-8 leading-relaxed text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
+                  <MarkdownPreview source={getLatestBlogForCurrentCategory?.content}/>
+                  {/* <p className="mb-8 leading-relaxed text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
                     {getLatestBlogForCurrentCategory?.content}
-                  </p>
+                  </p> */}
+                  </Link>
                 </div>
               )}
             </div>
@@ -86,6 +90,10 @@ export default function CategoryList({ list }: { list: Blog[] }) {
                         className="mb-6 border-b border-body-color border-opacity-10 pb-6 dark:border-white dark:border-opacity-10"
                         key={item.id}
                       >
+                        <Link
+                                href={`/blogs/${item.id}`}
+                                className="mb-[8px] block text-base font-medium text-black dark:text-white hover:text-primary dark:hover:text-primary"
+                              >
                         <div className="flex items-center lg:block xl:flex">
                           <div className="mr-5 lg:mb-3 xl:mb-0">
                             <div className="relative h-[60px] w-[70px] overflow-hidden rounded-md sm:h-[75px] sm:w-[85px]">
@@ -94,15 +102,11 @@ export default function CategoryList({ list }: { list: Blog[] }) {
                           </div>
                           <div className="w-full">
                             <h5>
-                              <Link
-                                href={"/"}
-                                className="mb-[8px] block text-base font-medium text-black dark:text-white hover:text-primary dark:hover:text-primary"
-                              >
                                 {item.title}
-                              </Link>
                             </h5>
                           </div>
                         </div>
+                        </Link>
                       </li>
                     ))
                   ) : (

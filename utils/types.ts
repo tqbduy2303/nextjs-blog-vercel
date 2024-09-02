@@ -23,6 +23,7 @@ export interface FormControlItem{
 
 export interface BlogFormData {
     title : string;
+    description : string;
     content : string;
     image : string;
     category : string;
@@ -31,10 +32,10 @@ export interface BlogFormData {
 export interface Blog{
     id : number;
     title : string;
+    createdAt : string;
     content : string;
+    description : string;
     category : string;
-    userid : string;
-    userimage : string;
     comment : string[];
     image : string;
 }

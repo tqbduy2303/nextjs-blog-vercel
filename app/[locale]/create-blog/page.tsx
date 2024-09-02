@@ -15,7 +15,17 @@ import {
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useContext, useState } from "react";
+import MarkdownEditor from '@uiw/react-markdown-editor';
 
+// import "@uiw/react-md-editor/markdown-editor.css";
+// import "@uiw/react-markdown-preview/markdown.css";
+// import dynamic from "next/dynamic";
+// // import * as commands from "@uiw/react-md-editor/commands"
+
+// const MDEditor = dynamic(
+//   () => import("@uiw/react-md-editor"),
+//   { ssr: false }
+// );
 const app = initializeApp(firebaseConfig);
 const stroage = getStorage(app, "gs://blog-aplication123.appspot.com");
 
@@ -94,7 +104,7 @@ export default function CreateBlog(){
       console.log(data, "data123");
   
       if (data && data.success) {
-        setFormData(initialBlogFormData)
+        setFormData(initialBlogFormData);
         router.push("/blogs");
       }
     }
@@ -160,11 +170,31 @@ export default function CreateBlog(){
                             rows={5}
                             name={control.id}
                             onChange={(
-                              event: React.ChangeEvent<HTMLTextAreaElement>
+                              event
+                              : React.ChangeEvent<HTMLTextAreaElement>
                             ) => {
                               setFormData({
                                 ...formData,
                                 [control.id]: event.target.value,
+                              });
+                            }}
+                            value={formData[control.id as keyof BlogFormData]}
+                            className="w-full resize-none rounded-md border border-transparent py-3 px-6 text-black text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-white dark:shadow-signUp"
+                          />
+                        ): control.component === "markdowneditor" ? (
+                          <MarkdownEditor
+                            //placeholder={control.placeholder}
+                            // rows={5}
+                            //name={control.id}
+                            height="200px"
+                            onChange={(
+                              event
+                              //: React.ChangeEvent<HTMLTextAreaElement>
+                            ) => {
+                              setFormData({
+                                ...formData,
+                                [control.id]: event
+                                //.target.value,
                               });
                             }}
                             value={formData[control.id as keyof BlogFormData]}

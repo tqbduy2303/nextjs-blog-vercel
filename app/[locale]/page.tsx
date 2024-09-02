@@ -1,30 +1,45 @@
 import Image from "next/image";
 import Link from "next/link";
-import img1 from "@/img/image.png"
-import img2 from "@/img/3f524a5f-9daf-4350-886f-da6cd5ae683d.png"
-import img3 from "@/img/qslf0x12.png"
-import { LastesNews } from "../LastesNews";
-import { Blogs } from "../Blogs";
-import ImageSlider from "../ImageSlider";
+
+// import { LastesNews } from "../LastesNews";
+// import ImageSlider from "../ImageSlider";
 import {useTranslations} from 'next-intl';
 
-const IMAGES = [img1.src, img2.src ,img3.src];
+
+
 export default function Home() {
   const t = useTranslations('HomePage');
-
   return (
-    <div className="w-9/10">
-    <div className="max-w-screen-xl aspect-video m-auto w-9/10 ">
-        <ImageSlider />
-    </div>
-      <h1>{t('title')}</h1>
-    <div className="flex justify-center">
-        <LastesNews imageUrls={IMAGES}/>
-    </div>
-    <div className="flex justify-center ">
-        <Blogs/>
-    </div>
-</div>
+    <div className="container mx-auto w-9/10">
+      <section className="relative z-10 overflow-hidden pt-[120px] pb-16 md:pt-[150px] md:pb-[120px] xl:pt-[180px] xl:pb-[160px] 2xl:pt-[210px] 2xl:pb-[200px]">
+        <div className="container">
+          <div className="-mx-4 flex flex-wrap">
+            <div className="w-full px-4">
+              <div className="mx-auto max-w-[800px] text-center">
+                <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
+                  Free Next.js Full-Stack Website Using Prisma
+                </h1>
+                <p className="mb-12 text-base font-medium !leading-relaxed text-body-color dark:text-white dark:opacity-90 sm:text-lg md:text-xl">
+                  This is a Free Next.js full stack template that you can use to
+                  create Blogs based on different category and also you can chat
+                  with others. This website is full of functionalities.
+                </p>
+              </div>
+              <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+                <Link
+                  className="rounded-md bg-primary py-4 px-8 text-base font-semibold text-white 
+                  hover:bg-primary/80"
+                  href={"/blogs"}
+                >
+                  Explore All Blogs
+                  
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </div>
 
   );
 }

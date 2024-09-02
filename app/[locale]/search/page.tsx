@@ -47,7 +47,7 @@ export default function Search() {
 
   return (
     <section className="overflow-hidden py-16 md:py-20 lg:py-28">
-      <div className="container">
+      <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mb-12 rounded-md bg-primary/[3%] py-11 px-8 dark:bg-dark sm:p-[50px] lg:mb-5 lg:px-8 xl:p-[55px]">
@@ -63,7 +63,7 @@ export default function Search() {
                     placeholder="Search Blogs"
                     autoFocus
                     autoComplete="off"
-                    className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+                    className="w-full rounded-md border border-transparent py-3 px-6 text-base border-white text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-black dark:shadow-signUp"
                     value={searchQuery}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setSearchQuery(e.target.value)
@@ -77,7 +77,7 @@ export default function Search() {
             </div>
           </div>
           <section className="pt-[80px] w-full pb-[120px]">
-            <div className="container">
+            <div className="container mx-auto">
               <div className="-mx-4 flex flex-wrap">
                 {searchResults && searchResults.length ? (
                   searchResults.map((searchBlogItem: Blog) => (
