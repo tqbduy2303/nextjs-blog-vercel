@@ -1,18 +1,45 @@
 
   {
     "HomePage": {
-      "title": "Chào!"
+    "title": "Trang Web Full-Stack Next.js Sử Dụng Prisma",
+    "description": "Đây là một trang web full stack sử dụng Next.js, bạn có thể tạo các bài viết dựa trên các danh mục khác nhau và trò chuyện với những người khác. Trang web này có đầy đủ các chức năng.",
+    "button-title": "Khám Phá Tất Cả Các Bài Viết"
     },
     "LocaleSwitcher": {
       "label": "Thay đổi ngôn ngữ",
       "locale": "{locale, select, vi {Tiếng Việt} en {Tiếng Anh} other {Không xác định}}"
     },
     "Header": {
-      "home": "Trang chủ",
-      "category": "Danh mục",
-      "blogs": "Bài viết",
-      "search": "Tìm kiếm",
-      "create": "Tạo mới"
+        "home": "Trang chủ",
+        "category": "Danh mục",
+        "blogs": "Bài viết",
+        "search": "Tìm kiếm",
+        "create": "Tạo bài",
+        "login": "Đăng nhập",
+        "logout": "Đăng xuất"
+    },
+    "Category": {
+        "filter": "Lọc theo danh mục",
+        "relateBlogs": "Bài viết liên quan",
+        "noRelateBlogs": "Không có bài viết liên quan",
+        "noBlogs": "Không có bài viết nào cho danh mục này! Vui lòng tạo một bài viết mới",
+        "btn": "Tạo Bài Viết Mới"
+    },
+    "Blogs": {
+        "comments": "Lọc theo danh mục",
+        "relateBlog": "Bài viết liên quan"
+    },
+    "Search": {
+        "title": "Tìm kiếm bất kỳ bài viết nào",
+        "search": "Tìm kiếm bài viết",
+        "button": "Tìm kiếm",
+        "results": "Không có kết quả tìm kiếm"
+    },
+    "Login": {
+        "title": "Đăng nhập",
+        "username": "Tên đăng nhập",
+        "passwords": "Mật khẩu",
+        "signin": "Đăng nhập"
     }
   }
   

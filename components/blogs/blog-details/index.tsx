@@ -124,9 +124,8 @@ export default function BlogDetailsHome({ blogData }: { blogData: Blog }) {
                   <div className="flex">
                     <div className="w-1/5 float-right flex-auto"><TableOfContents headings={headings} /></div>
                    <div className="w-4/5 float-left flex-auto">
-                      <div className="bg-black p-4 rounded-md shadow-lg top-20">
+                      <div className="bg-primary p-4 rounded-md shadow-lg top-20">
                       <MarkdownPreview source={blogData?.content} 
-                      // height="200px" 
                       />
                       </div>
                     
@@ -135,7 +134,7 @@ export default function BlogDetailsHome({ blogData }: { blogData: Blog }) {
                 </div>
               </div>
             </div>
-            <div className="w-full lg:w-8/12 flex gap-4 border-solid border	border-white rounded-md ">
+            <div className="w-full lg:w-8/12 flex gap-4 border-solid border	border-primary rounded-md ">
               {session !== null ? (
                 <>
                   <input
@@ -152,9 +151,11 @@ export default function BlogDetailsHome({ blogData }: { blogData: Blog }) {
                   />
                   <Button text="Add" onClick={handleCommentSave} />
                 </>
-              ) : null}
+              ) : <>
+                <p>please login to add comment</p>
+              </>}
             </div>
-            <section className="dark:bg-black py-8 lg:py-16 w-full lg:w-8/12 border-solid border	border-white rounded-md pl-5">
+            <section className="dark:bg-black py-8 lg:py-16 w-full lg:w-8/12 border-solid border	border-primary  rounded-md pl-5">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-lg lg:text-2xl font-bold text-black dark:text-white">
                   Discussion ({blogData?.comment.length})

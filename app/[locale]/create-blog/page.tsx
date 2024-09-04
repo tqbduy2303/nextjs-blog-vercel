@@ -17,15 +17,6 @@ import { useRouter } from "next/navigation";
 import React, { useContext, useState } from "react";
 import MarkdownEditor from '@uiw/react-markdown-editor';
 
-// import "@uiw/react-md-editor/markdown-editor.css";
-// import "@uiw/react-markdown-preview/markdown.css";
-// import dynamic from "next/dynamic";
-// // import * as commands from "@uiw/react-md-editor/commands"
-
-// const MDEditor = dynamic(
-//   () => import("@uiw/react-md-editor"),
-//   { ssr: false }
-// );
 const app = initializeApp(firebaseConfig);
 const stroage = getStorage(app, "gs://blog-aplication123.appspot.com");
 
@@ -62,8 +53,8 @@ export default function CreateBlog(){
     const { data: session } = useSession();
     const router = useRouter();
   
-    console.log(session, "session");
-  
+    // console.log(session, "session");
+    
     async function handleBlogImageChange(
       event: React.ChangeEvent<HTMLInputElement>
     ) {
@@ -109,7 +100,8 @@ export default function CreateBlog(){
       }
     }
   
-    console.log(formData, "formData");
+    // console.log(formData, "formData");
+    if(session?.user?.email === "admin@example.com"){
     return(
       <section className="overflow-hidden ">
       <div className="container mx-auto">
@@ -132,11 +124,11 @@ export default function CreateBlog(){
                         max={1000000}
                         onChange={handleBlogImageChange}
                         type="file"
-                        className="w-full mb-8 rounded-md border border-transparent py-3 px-6 text-black text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-white dark:shadow-signUp"
+                        className="w-full mb-8 rounded-md border border-solid border-black py-3 px-6 text-primary text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:border-white  dark:shadow-signUp"
                       />
                     </div>
                     {imageLoading ? (
-                      <div className="w-1/2">
+                      <div className="w-full">
                         <Spinner />
                       </div>
                     ) : null}
@@ -162,7 +154,7 @@ export default function CreateBlog(){
                               });
                             }}
                             value={formData[control.id as keyof BlogFormData]}
-                            className="w-full mb-8 rounded-md border border-transparent py-3 px-6 text-black text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-white dark:shadow-signUp"
+                            className="w-full mb-8 rounded-md border border-solid border-black py-3 px-6 text-black text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:border-white dark:shadow-signUp"
                           />
                         ) : control.component === "textarea" ? (
                           <textarea
@@ -179,13 +171,10 @@ export default function CreateBlog(){
                               });
                             }}
                             value={formData[control.id as keyof BlogFormData]}
-                            className="w-full resize-none rounded-md border border-transparent py-3 px-6 text-black text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-white dark:shadow-signUp"
+                            className="w-full resize-none rounded-md border border-solid border-black py-3 px-6 text-black text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary  dark:shadow-signUp"
                           />
                         ): control.component === "markdowneditor" ? (
                           <MarkdownEditor
-                            //placeholder={control.placeholder}
-                            // rows={5}
-                            //name={control.id}
                             height="200px"
                             onChange={(
                               event
@@ -197,8 +186,8 @@ export default function CreateBlog(){
                                 //.target.value,
                               });
                             }}
-                            value={formData[control.id as keyof BlogFormData]}
-                            className="w-full resize-none rounded-md border border-transparent py-3 px-6 text-black text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-white dark:shadow-signUp"
+                            // value={formData[control.id as keyof BlogFormData]}
+                            // className="w-full resize-none rounded-md border border-solid py-3 px-6 text-black text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none"
                           />
                         ) : control.component === "select" ? (
                           <select
@@ -213,7 +202,7 @@ export default function CreateBlog(){
                               });
                             }}
                             value={formData[control.id as keyof BlogFormData]}
-                            className="w-full mb-8 rounded-md border border-transparent py-3 px-6 text-black text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-white dark:shadow-signUp"
+                            className="w-full mb-8 rounded-md border border-solid border-black py-3 px-6 text-primary text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:shadow-signUp"
                           >
                             <option value={""} id="">
                               Select
@@ -244,5 +233,18 @@ export default function CreateBlog(){
         </div>
       </div>
     </section>
-    );
+    );}
+    else {
+      return (
+        <div className="flex flex-col gap-4">
+                  <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl">
+                    please login to create blog, please login as admin
+                  </h2>
+                  <Button
+                    text="login"
+                    onClick={() => router.push("/login")}
+                  />
+                </div>
+      );
+    }
 }

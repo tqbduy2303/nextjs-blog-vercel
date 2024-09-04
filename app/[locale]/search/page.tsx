@@ -4,6 +4,7 @@ import SingleBlog from "@/components/blogs/single-blog";
 import Button from "@/components/button";
 import { GlobalContext } from "@/context";
 import { Blog } from "@/utils/types";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 
@@ -12,7 +13,7 @@ export default function Search() {
     useContext(GlobalContext);
 
   const router = useRouter();
-
+  const t = useTranslations('Search');
   async function helperFuncToFetchSearchResults(query: string) {
     const res = await fetch(`/api/search?query=${query}`, {
       method: "GET",
@@ -52,7 +53,7 @@ export default function Search() {
           <div className="w-full px-4">
             <div className="mb-12 rounded-md bg-primary/[3%] py-11 px-8 dark:bg-dark sm:p-[50px] lg:mb-5 lg:px-8 xl:p-[55px]">
               <h2 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
-                Search any blog post
+                {t('title')}
               </h2>
               <div className="flex flex-col gap-4">
                 <div className="flex gap-4">
@@ -60,7 +61,7 @@ export default function Search() {
                     name="search"
                     id="search"
                     type="text"
-                    placeholder="Search Blogs"
+                    placeholder={t('search')}
                     autoFocus
                     autoComplete="off"
                     className="w-full rounded-md border border-transparent py-3 px-6 text-base border-white text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-black dark:shadow-signUp"
@@ -71,7 +72,7 @@ export default function Search() {
                   />
                 </div>
                 <div>
-                  <Button text="Search" onClick={handleSearch} />
+                  <Button text={t('button')} onClick={handleSearch} />
                 </div>
               </div>
             </div>
@@ -92,7 +93,9 @@ export default function Search() {
                     </div>
                   ))
                 ) : (
-                  <h1>No search results</h1>
+                  <h1>
+                    {t('results')}  
+                  </h1>
                 )}
               </div>
             </div>

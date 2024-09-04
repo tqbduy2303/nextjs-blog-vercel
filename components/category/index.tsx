@@ -7,9 +7,10 @@ import Image from "next/image";
 import { categories } from "@/utils";
 import Link from "next/link";
 import MarkdownPreview from '@uiw/react-markdown-preview';
-
+import { useTranslations } from "next-intl";
 export default function CategoryList({ list }: { list: Blog[] }) {
   console.log(list, "list");
+  const t = useTranslations('Category');
 
   const router = useRouter();
 
@@ -32,10 +33,10 @@ export default function CategoryList({ list }: { list: Blog[] }) {
               {getLatestBlogForCurrentCategory === null ? (
                 <div className="flex flex-col gap-4">
                   <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl">
-                    No blog available for this category ! please create one
+                    {t("noBlogs")}
                   </h2>
                   <Button
-                    text="Create New Blog"
+                    text={t("btn")}
                     onClick={() => router.push("/create-blog")}
                   />
                 </div>
@@ -66,13 +67,13 @@ export default function CategoryList({ list }: { list: Blog[] }) {
             <div className="w-full px-4 lg:w-4/12">
               <div className="mb-10 rounded-md bg-primary bg-opacity-5 dark:bg-opacity-10">
                 <h3 className="border-b border-body-color border-opacity-10 py-4 px-8 text-lg font-semibold text-black dark:border-white dark:border-opacity-10 dark:text-white">
-                  Filter by Category
+                  {t("filter")}
                 </h3>
                 <div className="flex flex-wrap py-6 px-8">
                   {categories.map((catItem) => (
                     <button
                       onClick={() => router.push(`/category/${catItem.value}`)}
-                      className="mr-3 mb-3 inline-flex items-center justify-center rounded-md bg-primary py-2 px-4 text-white duration-300"
+                      className="mr-3 mb-3 inline-flex items-center justify-center rounded-md bg-primary py-2 px-4 text-primary duration-300"
                     >
                       {catItem.label}
                     </button>
@@ -81,7 +82,7 @@ export default function CategoryList({ list }: { list: Blog[] }) {
               </div>
               <div className="mb-10 rounded-md bg-primary bg-opacity-5 dark:bg-opacity-10">
                 <h3 className="border-b border-body-color border-opacity-10 py-4 px-8 text-lg font-semibold text-black dark:border-white dark:border-opacity-10 dark:text-white">
-                  Related Blogs
+                  {t("relateBlogs")}
                 </h3>
                 <ul className="p-8">
                   {relatedBlogs && relatedBlogs.length ? (
@@ -110,7 +111,7 @@ export default function CategoryList({ list }: { list: Blog[] }) {
                       </li>
                     ))
                   ) : (
-                    <h1>No Related blogs available</h1>
+                    <h1>{t("noRelateBlogs")}</h1>
                   )}
                 </ul>
               </div>

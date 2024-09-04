@@ -23,11 +23,11 @@ export default function SingleBlog({
     <div>
     
       <div className="relative overflow-hidden rounded-md bg-white shadow-one dark:bg-dark">
-        <Link className="relative block h-[250px] w-full" href={`/blogs/${id}`}>
+        <Link className="relative block h-auto w-full max-h-200px" href={`/blogs/${id}`}>
           <span className="absolute top-6 right-6 z-20 inline-flex items-center justify-center rounded-full bg-primary py-2 px-4 text-sm font-semibold capitalize text-white">
             {category}
           </span>
-          <Image src={image} alt="Blog Post" fill />
+          <Image src={image} alt="Blog Post" loading="lazy" width={500}	height={200}  />
         </Link>
       </div>
       <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">

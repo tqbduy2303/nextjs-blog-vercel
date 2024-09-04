@@ -5,12 +5,12 @@ import { ProgressBar } from "react-loader-spinner";
 export default function Spinner() {
   return (
     <ProgressBar
-      height={"120"}
-      width={"120"}
+      height={"526"}
+      width={"1080"}
       ariaLabel="Common Loader"
       borderColor="#000"
-      barColor="#fff"
-      wrapperStyle={{ display: "block", margin: "auto" }}
+      barColor={"#CFFD60"}
+      wrapperStyle={{ display: "block", margin: "auto"}}
     />
   );
 }

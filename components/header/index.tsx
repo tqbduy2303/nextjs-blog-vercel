@@ -12,6 +12,7 @@ import { GlobalContext } from "@/context";
 import pic from "@/img/logo-finfan.png";
 import LocaleSwitcher from "../LocalSwitcher";
 import { useTranslations } from "next-intl";
+import { link } from "fs";
 
 
 export default function Header() {
@@ -49,7 +50,7 @@ export default function Header() {
         className={`top-0 left-0 z-40 flex w-full items-center bg-transparent
         ${
           sticky
-            ? "!fixed !z-[9999] !bg-black !bg-opacity-80 shadow-sticky backdrop:blur-sm !transition dark:!bg-primary dark:!bg-opacity-20"
+            ? "!fixed !z-[9999] !bg-primary !bg-opacity-80 shadow-sticky backdrop:blur-sm !transition dark:!bg-primary dark:!bg-opacity-20"
             : ""
         }
         `}
@@ -118,7 +119,7 @@ export default function Header() {
                 </nav>
               </div>
               <div className="flex gap-4 items-center justify-end pr-16 lg:pr-0">
-                {session !== null ? (
+                {session !== null && session?.user?.email === "admin@example.com" ? (
                   <Button
                     onClick={() => router.push("/create-blog")}
                     text={t("create")}
@@ -126,9 +127,11 @@ export default function Header() {
                 ) : null}
                 <Button
                   onClick={
-                    session !== null ? () => signOut() : () => signIn("github")
+                    // () => router.push("/login")
+                    session !== null ? () => signOut() : () => router.push("/login")
+                      // signIn("github")
                   }
-                  text={session !== null ? "Logout" : "Login"}
+                  text={session !== null ? t("logout") : t("login")}
                 />
                 <div><LocaleSwitcher/></div>
                 <div className="flex gap-3 items-center">

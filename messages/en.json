@@ -1,6 +1,9 @@
 {
     "HomePage": {
-      "title": "Hello world!"
+      "title": "Next.js Full-Stack Website Using Prisma",
+      "description": "This is a Next.js full stack that you can use to create Blogs based on different category and also you can chat with others. This website is full of functionalities.",
+      "button-title": "Explore All Blogs"
+
     },
     "LocaleSwitcher": {
     "label": "Change language",
@@ -12,6 +15,35 @@
     "category": "Category",
     "blogs": "Blogs",
     "search": "Search",
-    "create": "Create"
+    "create": "Create",
+    "login": "Login",
+    "logout": "Logout"
+    }
+    ,
+    "Category": {
+    "filter": "Filter by Category",
+    "relateBlogs": "Related Blogs",
+    "noRelateBlogs": "No Related blogs available",
+    "noBlogs": "No blog available for this category ! please create one",
+    "btn": "Create New Blog"
+    }
+    ,
+    "Blogs": {
+    "comments": "Filter by Category",
+    "relateBlog": "Related Blogs"
+    }
+    ,
+    "Search": {
+    "title": "Search any blog post",
+    "search": "Search Blogs",
+    "button": "Search",
+    "results": "No search results"
+    }
+    ,
+    "Login": {
+    "title": "Login",
+    "username": "Username",
+    "passwords": "Passwords",
+    "signin": "Sign in"
     }
   }
