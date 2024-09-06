@@ -70,8 +70,9 @@ export default function CategoryList({ list }: { list: Blog[] }) {
                   {t("filter")}
                 </h3>
                 <div className="flex flex-wrap py-6 px-8">
-                  {categories.map((catItem) => (
+                  {categories.map((catItem,key) => (
                     <button
+                      key={key}
                       onClick={() => router.push(`/category/${catItem.value}`)}
                       className="mr-3 mb-3 inline-flex items-center justify-center rounded-md bg-primary py-2 px-4 text-primary duration-300"
                     >

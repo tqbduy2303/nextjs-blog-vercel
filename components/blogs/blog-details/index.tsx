@@ -162,8 +162,8 @@ export default function BlogDetailsHome({ blogData }: { blogData: Blog }) {
                 </h2>
               </div>
               {blogData && blogData.comment && blogData.comment.length > 0
-                ? blogData.comment.map((comment) => (
-                    <div className="p-6 text-base rounded-lg dark:bg-black">
+                ? blogData.comment.map((comment,key) => (
+                    <div className="p-6 text-base rounded-lg dark:bg-black" key={key}>
                       <div className="flex justify-between items-center mb-2">
                         <div className="flex items-center">
                           <p className="inline-flex items-center mr-3 text-sm text-black dark:text-white font-semibold">

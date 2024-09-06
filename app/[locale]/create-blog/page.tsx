@@ -135,8 +135,8 @@ export default function CreateBlog(){
                   </div>
 
                   <div className="-mx-4 flex flex-wrap">
-                    {formControls.map((control) => (
-                      <div className="w-full px-4">
+                    {formControls.map((control,key) => (
+                      <div className="w-full px-4" key={key}>
                         <label className="mb-3 block text-sm font-medium text-dark dark:text-white">
                           {control.label}
                         </label>
@@ -154,7 +154,7 @@ export default function CreateBlog(){
                               });
                             }}
                             value={formData[control.id as keyof BlogFormData]}
-                            className="w-full mb-8 rounded-md border border-solid border-black py-3 px-6 text-black text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:border-white dark:shadow-signUp"
+                            className="w-full mb-8 rounded-md border border-solid border-black py-3 px-6 text-black text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:text-white dark:border-white dark:shadow-signUp"
                           />
                         ) : control.component === "textarea" ? (
                           <textarea
@@ -171,7 +171,7 @@ export default function CreateBlog(){
                               });
                             }}
                             value={formData[control.id as keyof BlogFormData]}
-                            className="w-full resize-none rounded-md border border-solid border-black py-3 px-6 text-black text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary  dark:shadow-signUp"
+                            className="w-full resize-none rounded-md border border-solid border-black py-3 px-6 text-primary text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:border-white dark:shadow-signUp"
                           />
                         ): control.component === "markdowneditor" ? (
                           <MarkdownEditor
@@ -193,6 +193,7 @@ export default function CreateBlog(){
                           <select
                             name={control.id}
                             aria-placeholder={control.placeholder}
+                    
                             onChange={(
                               event: React.ChangeEvent<HTMLSelectElement>
                             ) => {
@@ -202,13 +203,14 @@ export default function CreateBlog(){
                               });
                             }}
                             value={formData[control.id as keyof BlogFormData]}
-                            className="w-full mb-8 rounded-md border border-solid border-black py-3 px-6 text-primary text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:shadow-signUp"
+                            className="w-full mb-8 rounded-md border border-solid border-black py-3 px-6 text-primary bg-white text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:border-white dark:bg-black dark:shadow-signUp"
                           >
                             <option value={""} id="">
                               Select
                             </option>
-                            {control.options.map((optionItem) => (
+                            {control.options.map((optionItem,key) => (
                               <option
+                                key={key}
                                 id={optionItem.value}
                                 value={optionItem.value}
                               >

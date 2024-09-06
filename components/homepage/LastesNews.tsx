@@ -89,7 +89,7 @@ export function LastesNews({ lists }: { lists: Blog[] }){
                         </div>
                         <Link href="">
                         <div className="font-manrope lg:text-xl text-base my-4 text-xl lg:text-2xl font-medium overflow-hidden text-ellipsis">
-                            Ho Chi Minh City's New Plan to Manage Remittance Flows -
+                            Ho Chi Minh Citys New Plan to Manage Remittance Flows -
                             Opportunities for Remittance to Vietnam
                         </div>
                         </Link>
@@ -103,7 +103,7 @@ export function LastesNews({ lists }: { lists: Blog[] }){
                             }}
                         >
                             Recently, Ho Chi Minh City has proposed a plan to better manage
-                            or "nắn dòng" (redirect) remittance flows. This initiative could
+                            or nắn dòng redirect remittance flows. This initiative could
                             present new opportunities for enhancing the efficiency and
                             impact of remittance to Vietnam.
                         </div>
