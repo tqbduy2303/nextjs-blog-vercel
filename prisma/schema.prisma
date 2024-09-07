@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("s")
+  url      = env("POSTPRES_URL")
 }
 
 model Blog {
