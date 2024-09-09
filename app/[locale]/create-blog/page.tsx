@@ -108,7 +108,7 @@ export default function CreateBlog(){
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mb-12 rounded-md bg-primary/[3%] py-10 dark:bg-dark sm:p-[55px] lg:mb-5 lg:px-8 xl:p-[55px] px-8">
-              <h2 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
+              <h2 className="mb-3 text-2xl font-bold text-white sm:text-3xl lg:text-2xl xl:text-3xl">
                 Create Your Own Blog Post
               </h2>
               <div>
@@ -154,7 +154,7 @@ export default function CreateBlog(){
                               });
                             }}
                             value={formData[control.id as keyof BlogFormData]}
-                            className="w-full mb-8 rounded-md border border-solid border-black py-3 px-6 text-black text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:text-white dark:border-white dark:shadow-signUp"
+                            className="w-full mb-8 rounded-md border border-solid border-black py-3 px-6 text-white text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:text-white dark:border-white dark:shadow-signUp"
                           />
                         ) : control.component === "textarea" ? (
                           <textarea
@@ -187,7 +187,7 @@ export default function CreateBlog(){
                               });
                             }}
                             // value={formData[control.id as keyof BlogFormData]}
-                            // className="w-full resize-none rounded-md border border-solid py-3 px-6 text-black text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none"
+                            // className="w-full resize-none rounded-md border border-solid py-3 px-6 text-white text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none"
                           />
                         ) : control.component === "select" ? (
                           <select
@@ -239,7 +239,7 @@ export default function CreateBlog(){
     else {
       return (
         <div className="flex flex-col gap-4">
-                  <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl">
+                  <h2 className="mb-8 text-3xl font-bold leading-tight text-white dark:text-white sm:text-4xl">
                     please login to create blog, please login as admin
                   </h2>
                   <Button

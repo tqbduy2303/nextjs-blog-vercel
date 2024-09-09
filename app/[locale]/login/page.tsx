@@ -16,10 +16,10 @@ export default function SignIn() {
     return (
       <div className="flex items-center justify-center min-h-screen bg-primary">
         <div className="w-full max-w-md p-8 space-y-8 bg-primary border border-solid border-primary rounded shadow-md">
-          <h2 className="text-2xl font-bold text-center">{t('title')}</h2>
+          <h2 className="text-2xl font-bold text-center text-white">{t('title')}</h2>
           <div className="space-y-6" >
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-primary">
+              <label htmlFor="username" className="block text-sm font-medium text-white">
                 {t('username')}
               </label>
               <input
@@ -28,13 +28,13 @@ export default function SignIn() {
                 type="username"
                 placeholder='admin'
                 required
-                className="w-full px-3 py-2 mt-1 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-primary"
+                className="w-full px-3 py-2 mt-1 border bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-black"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-primary">
+              <label htmlFor="password" className="block text-sm font-medium text-white">
                 {t('passwords')}
               </label>
               <input
@@ -43,7 +43,7 @@ export default function SignIn() {
                 type="password"
                 placeholder='admin'
                 required
-                className="w-full px-3 py-2 mt-1 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-primary"
+                className="w-full px-3 py-2 mt-1 border bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-black"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

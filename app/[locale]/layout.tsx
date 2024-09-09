@@ -35,7 +35,7 @@ export default async function RootLayout({
   const messages = await getMessages();
   return (
     <html lang={locale}>
-      <body className={`${inter.className} bg-white dark:bg-primaryColor`}>
+      <body className={`${inter.className} bg-primaryColor1 dark:bg-primaryColor`}>
       <NextIntlClientProvider messages={messages}>
         <NextThemeProvider>
           <NextAuthProvider>

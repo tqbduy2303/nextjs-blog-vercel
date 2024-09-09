@@ -47,7 +47,7 @@ export default function Header() {
   return (
     <div>
       <header
-        className={`top-0 left-0 z-40 flex w-full items-center bg-transparent
+        className={`top-0 left-0 z-40 flex w-full items-center bg-transparent bg-secondaryColor1 dark:bg-primaryColor 
         ${
           sticky
             ? "!fixed !z-[9999] !bg-primary !bg-opacity-80 shadow-sticky backdrop:blur-sm !transition dark:!bg-primary dark:!bg-opacity-20"
@@ -64,8 +64,8 @@ export default function Header() {
                     ${sticky ? "py-5 lg:py-2" : "py-8"}
                     `}
               >
-                 <img src={pic.src} className="h-8" alt="FinFan logo" />
-                 <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Finfan</span>
+                 {/* <img src={pic.src} className="h-8" alt="FinFan logo" /> */}
+                 <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">Finfan</span>
               </Link>
             </div>
             <div className="flex w-full items-center justify-between px-4">
@@ -109,7 +109,7 @@ export default function Header() {
                       <li key={item.id} className="group relative">
                         <Link
                           href={item.path}
-                          className={`flex py-2 text-base text-dark group-hover:opacity-70 dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0`}
+                          className={`flex py-2 text-white text-dark group-hover:opacity-70 lg:mr-0 lg:inline-flex lg:py-6 lg:px-0`}
                         >
                           {t(item.id)}
                         </Link>

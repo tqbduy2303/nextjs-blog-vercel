@@ -16,9 +16,12 @@ const config: Config = {
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
-        primaryColor: '#000000',
+        primaryColor: '#111111',
         secondaryColor: '#FFFFFF',
-        keyColor: '#CFFD60'
+        keyColor: '#CFFD60',
+        primaryColor1: '#663aa6',
+        secondaryColor1: '#3b2a66',
+        keyColor1: '#65d8af'
       },
       screens: {
         xs: "450px",

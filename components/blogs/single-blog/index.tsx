@@ -33,13 +33,13 @@ export default function SingleBlog({
       <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
         <h3>
           <Link
-            className="mb-4 text-ellipsis block text-xl font-bold text-black hover:text-primary dark:text-white dark:hover:text-primary sm:text-2xl"
+            className="mb-4 text-ellipsis block text-xl font-bold hover:text-primary text-white dark:hover:text-primary sm:text-2xl"
             href={`/blogs/${id}`}
           >
             {title}
           </Link>
         </h3>
-        <p className="h-[20px] text-ellipsis overflow-hidden whitespace-nowrap mb-6 pb-6 text-base font-medium text-body-color dark:border-white dark:border-opacity-10">
+        <p className="h-[20px] text-ellipsis overflow-hidden whitespace-nowrap mb-6 pb-6 text-white font-medium text-body-color dark:border-white dark:border-opacity-10">
         {description} 
         </p>
         <div className="flex items-center justify-between">
@@ -64,7 +64,7 @@ export default function SingleBlog({
                 <FaTrash
                   onClick={() => handleDelete(id)}
                   size={30}
-                  className="cursor-pointer"
+                  className="cursor-pointer text-white"
                 />
               ) : null}
             </div>

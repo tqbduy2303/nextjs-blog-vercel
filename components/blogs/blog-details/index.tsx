@@ -77,7 +77,7 @@ export default function BlogDetailsHome({ blogData }: { blogData: Blog }) {
           <div className="-mx-4 flex flex-col gap-4 items-center justify-center">
             <div className="w-full px-4 lg:w-10/12">
               <div className="w-full">
-                <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl">
+                <h2 className="mb-8 text-3xl font-bold leading-tight text-white dark:text-white sm:text-4xl">
                   {blogData?.title}
                 </h2>
                 <div className="mb-10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10 pb-4 dark:border-white dark:border-opacity-10">
@@ -125,7 +125,7 @@ export default function BlogDetailsHome({ blogData }: { blogData: Blog }) {
                     <div className="w-1/5 float-right flex-auto"><TableOfContents headings={headings} /></div>
                    <div className="w-4/5 float-left flex-auto">
                       <div className="bg-primary p-4 rounded-md shadow-lg top-20">
-                      <MarkdownPreview source={blogData?.content} 
+                      <MarkdownPreview source={blogData?.content} className="text-white"
                       />
                       </div>
                     
@@ -157,7 +157,7 @@ export default function BlogDetailsHome({ blogData }: { blogData: Blog }) {
             </div>
             <section className="dark:bg-black py-8 lg:py-16 w-full lg:w-8/12 border-solid border	border-primary  rounded-md pl-5">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-lg lg:text-2xl font-bold text-black dark:text-white">
+                <h2 className="text-lg lg:text-2xl font-bold text-white dark:text-white">
                   Discussion ({blogData?.comment.length})
                 </h2>
               </div>
@@ -166,7 +166,7 @@ export default function BlogDetailsHome({ blogData }: { blogData: Blog }) {
                     <div className="p-6 text-base rounded-lg dark:bg-black" key={key}>
                       <div className="flex justify-between items-center mb-2">
                         <div className="flex items-center">
-                          <p className="inline-flex items-center mr-3 text-sm text-black dark:text-white font-semibold">
+                          <p className="inline-flex items-center mr-3 text-sm text-white dark:text-white font-semibold">
                             {
                             // comment.split("|")[1] === blogData?.id
                             //   ? `${

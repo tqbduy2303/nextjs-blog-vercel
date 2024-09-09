@@ -52,7 +52,7 @@ export default function Search() {
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mb-12 rounded-md bg-primary/[3%] py-11 px-8 dark:bg-dark sm:p-[50px] lg:mb-5 lg:px-8 xl:p-[55px]">
-              <h2 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
+              <h2 className="mb-3 text-2xl font-bold text-white dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
                 {t('title')}
               </h2>
               <div className="flex flex-col gap-4">
@@ -93,7 +93,7 @@ export default function Search() {
                     </div>
                   ))
                 ) : (
-                  <h1>
+                  <h1 className="text-white">
                     {t('results')}  
                   </h1>
                 )}

@@ -25,13 +25,13 @@ export default function TableOfContents({ headings }: Props) {
 
   return (
      <nav className="bg-primary border-solid border-2 border-primary p-4 rounded-md shadow-lg max-w-xs sticky top-20 pl-8">
-      <p className="text-lg font-semibold mb-4 text-primary">Table of contents</p>
-      <ul className="list-disc list-outside space-y-2">
+      <p className="text-lg font-semibold mb-4 text-primary text-white">Table of contents</p>
+      <ul className="list-disc list-outside space-y-2 text-white">
         {headings.map(({ slug, title, level }, index) => (
           <li key={index} className={`ml-${level * 3} py-1`}>
             <a
               href={`#${slug}`}
-              className="text-keyColor hover:text-blue-800 hover:underline block py-1 transition-colors"
+              className="text-keyColor1 dark:text-keyColor hover:text-blue-800 hover:underline block py-1 transition-colors"
             >
               {getHeadingContent({ slug, title, level })}
             </a>
