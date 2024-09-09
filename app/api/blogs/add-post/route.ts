@@ -1,6 +1,7 @@
-import prisma from "@/database";
 import { NextRequest, NextResponse } from "next/server";
+import { PrismaClient, Prisma } from '@prisma/client';
 
+const prisma = new PrismaClient()
 export async function POST(request: NextRequest) {
   try {
     const extractPostData = await request.json();
