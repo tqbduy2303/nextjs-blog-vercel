@@ -81,7 +81,7 @@ export default function BlogDetailsHome({ blogData }: { blogData: Blog }) {
                   {blogData?.title}
                 </h2>
                 <div className="mb-10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10 pb-4 dark:border-white dark:border-opacity-10">
-                  <div className="flex flex-wrap items-center">
+                  <div className="flex flex-wrap items-center text-white">
                   {formatDate(blogData?.createdAt)}
                     {/* <div className="mr-10 mb-5 flex items-center">
                       <div className="mr-4">

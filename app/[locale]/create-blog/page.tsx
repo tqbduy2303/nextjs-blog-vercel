@@ -99,7 +99,7 @@ export default function CreateBlog(){
         router.push("/blogs");
       }
     }
-  
+    document.documentElement.setAttribute('data-color-mode', 'light')
     // console.log(formData, "formData");
     if(session?.user?.email === "admin@example.com"){
     return(
@@ -115,7 +115,7 @@ export default function CreateBlog(){
                 <div className="flex flex-col gap-3">
                   <div className="flex gap-3">
                     <div className={`${imageLoading ? "w-1/2" : "w-full"}`}>
-                      <label className="mb-3 block text-sm font-medium text-dark dark:text-white">
+                      <label className="mb-3 block text-sm font-medium text-dark text-white">
                         Upload Blog Image
                       </label>
                       <input
@@ -124,7 +124,7 @@ export default function CreateBlog(){
                         max={1000000}
                         onChange={handleBlogImageChange}
                         type="file"
-                        className="w-full mb-8 rounded-md border border-solid border-black py-3 px-6 text-primary text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:border-white  dark:shadow-signUp"
+                        className="w-full mb-8 bg-white rounded-md border border-solid border-white py-3 px-6 text-primary text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-black dark:border-white  dark:shadow-signUp"
                       />
                     </div>
                     {imageLoading ? (
@@ -137,7 +137,7 @@ export default function CreateBlog(){
                   <div className="-mx-4 flex flex-wrap">
                     {formControls.map((control,key) => (
                       <div className="w-full px-4" key={key}>
-                        <label className="mb-3 block text-sm font-medium text-dark dark:text-white">
+                        <label className="mb-3 block text-sm font-medium text-white">
                           {control.label}
                         </label>
                         {control.component === "input" ? (
@@ -154,7 +154,7 @@ export default function CreateBlog(){
                               });
                             }}
                             value={formData[control.id as keyof BlogFormData]}
-                            className="w-full mb-8 rounded-md border border-solid border-black py-3 px-6 text-white text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:text-white dark:border-white dark:shadow-signUp"
+                            className="w-full mb-8 rounded-md border border-solid border-white py-3 px-6 text-white text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:text-white dark:border-white dark:shadow-signUp"
                           />
                         ) : control.component === "textarea" ? (
                           <textarea
@@ -171,10 +171,11 @@ export default function CreateBlog(){
                               });
                             }}
                             value={formData[control.id as keyof BlogFormData]}
-                            className="w-full resize-none rounded-md border border-solid border-black py-3 px-6 text-primary text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:border-white dark:shadow-signUp"
+                            className="w-full resize-none rounded-md border border-solid border-white py-3 px-6 text-primary text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:border-white dark:shadow-signUp"
                           />
                         ): control.component === "markdowneditor" ? (
                           <MarkdownEditor
+                            
                             height="200px"
                             onChange={(
                               event
@@ -203,7 +204,7 @@ export default function CreateBlog(){
                               });
                             }}
                             value={formData[control.id as keyof BlogFormData]}
-                            className="w-full mb-8 rounded-md border border-solid border-black py-3 px-6 text-primary bg-white text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:border-white dark:bg-black dark:shadow-signUp"
+                            className="w-full mb-8 rounded-md border border-solid border-white py-3 px-6 text-primary bg-white text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-primary dark:border-white dark:bg-black dark:shadow-signUp"
                           >
                             <option value={""} id="">
                               Select
